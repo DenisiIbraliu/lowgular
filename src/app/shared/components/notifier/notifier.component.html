@@ -1,0 +1,12 @@
+<div class="snack-bar">
+    <header>
+        {{data.type | titlecase}}
+    </header>
+
+    <div class="snack-bar__body">
+        {{data.message}}
+        <div>
+            <button mat-flat-button (click)="snackBarRef.dismiss()">{{data.buttonText}}</button>
+        </div>
+    </div>
+</div>

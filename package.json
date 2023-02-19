@@ -21,8 +21,11 @@
     "@angular/platform-browser": "^14.2.2",
     "@angular/platform-browser-dynamic": "^14.2.2",
     "@angular/router": "^14.2.2",
+    "@uploadcare/upload-client": "^6.2.1",
+    "ngx-uploadcare-widget": "^4.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "uploadcare-widget": "^3.21.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

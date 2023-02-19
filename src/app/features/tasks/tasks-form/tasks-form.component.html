@@ -1,0 +1,38 @@
+<h2>{{isEditMode ? 'Edit' : 'Create New'}} Task</h2>
+<app-loading></app-loading>
+<form (submit)="handleSubmit()">
+    <div [formGroup]="taskForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+        </mat-form-field>
+
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose an option</mat-label>
+                <mat-select formControlName="categoryId">
+                    <mat-option *ngFor="let option of categories$ | async" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <h3>Choose Team Memeber</h3>
+            <span *ngFor="let member of teamMembers$ | async">
+                <mat-checkbox (change)="handleTeamMemeberSelect($event)" [checked]=" teamMemberIds.includes(member.id)"
+                    [value]="member.id"></mat-checkbox>
+
+                <img class=" avatar" [src]="member.avatar" alt="">
+            </span>
+        </div>
+    </div>
+    <div>
+        <app-file-uploader [accept]="'.png,.jpg,jpeg'"
+            [fileSrc]="existingTask && existingTask.imageUrl ? existingTask.imageUrl : ''"
+            (onFileUpload)="handleTaskImageUpload($event)">
+        </app-file-uploader>
+    </div>
+
+    <button type="submit" mat-raised-button color="primary">{{isEditMode ? 'Submit' : 'Create'}}</button>
+</form>

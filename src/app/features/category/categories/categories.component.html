@@ -1,0 +1,30 @@
+<ng-container>
+    <header>
+        <h1>Welcome to Taskilicious</h1>
+        <h2>Choose a category</h2>
+    </header>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose an option</mat-label>
+        <mat-select (valueChange)="handleCategorySort($event)">
+            <mat-option *ngFor="let option of filterOptions" [value]="option.value">
+                {{option.label}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <app-loading></app-loading>
+    <mat-list *ngIf="categories$ | async as categories;" class="categories">
+        <mat-list-item *ngFor="let category of categories" class="categories__item">
+            <span (click)="handleCategorySelect(category)">{{category.name}} </span>
+            <span (click)="handleCategoryUpdate(category)">
+
+                <mat-icon style=" cursor: pointer;">edit</mat-icon>
+            </span>
+        </mat-list-item>
+    </mat-list>
+
+    <button mat-fab extended class=" add-btn" (click)="handleCategoryCreation()">
+        <mat-icon>add</mat-icon>
+    </button>
+</ng-container>

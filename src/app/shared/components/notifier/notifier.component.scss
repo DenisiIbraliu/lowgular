@@ -1,0 +1,16 @@
+.snack-bar {
+  header {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  &__body {
+    margin: 10px 0;
+    text-align: center;
+
+    button {
+      margin-top: 10px;
+      width: 50%;
+    }
+  }
+}

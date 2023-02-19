@@ -1,0 +1,13 @@
+.categories {
+  max-height: 60vh;
+  overflow-y: auto;
+  width: 25%;
+  &__item {
+    span {
+      cursor: pointer;
+    }
+  }
+}
+.add-btn {
+  margin-top: 10px;
+}
