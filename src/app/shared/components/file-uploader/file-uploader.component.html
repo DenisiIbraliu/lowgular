@@ -1,0 +1,8 @@
+<div class="file-uploader">
+    <ng-container *ngIf="fileSrc">
+        <img class="file-uploader__preview" [src]="fileSrc">
+    </ng-container>
+
+    <input [accept]="accept" type="file" (change)="handleFileUpload($event)" />
+
+</div>
